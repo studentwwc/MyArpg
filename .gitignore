@@ -1,3 +1,4 @@
 ﻿/Arpg/Library
 *.meta
-/Arpg/ProjectSetting
+/Arpg/ProjectSettings
+/Arpg/Logs
