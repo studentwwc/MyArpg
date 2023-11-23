@@ -1,0 +1,37 @@
+﻿# Default ignored files
+/shelf/
+/workspace.xml
+# Rider ignored files
+/modules.xml
+/contentModel.xml
+/projectSettingsUpdater.xml
+/.idea.Arpg.iml
+# Editor-based HTTP Client requests
+/httpRequests/
+# Datasource local storage ignored files
+/dataSources/
+/dataSources.local.xml
+# Unity generated folders
+/[Ll]ibrary/
+/[Tt]emp/
+/[Oo]bj/
+/[Bb]uild/
+
+# Logs
+/[Ll]ogs/
+
+# Visual Studio files
+/*.sln
+/*.csproj
+/*.userprefs
+
+# macOS
+.DS_Store
+
+# Thumbnails
+/Thumbs.db
+/._*
+
+# Unity3D generated file on crash reports
+/hs_err_pid*
+
