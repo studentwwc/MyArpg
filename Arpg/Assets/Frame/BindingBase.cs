@@ -34,7 +34,7 @@ namespace Frame
             
         }
 
-        protected virtual void ReceiveMessage(MessageBase messageBase)
+        public virtual void ReceiveMessage(MessageBase messageBase)
         {
             
         }

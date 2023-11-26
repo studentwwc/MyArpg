@@ -4,9 +4,10 @@
     {
         protected BindingGroup _bindingGroup;
 
-        protected void HandleProxy(string name,MessageBase messageBase)
+        public virtual void HandleProxy(string name,MessageBase messageBase)
         {
             
         }
+        
     }
 }
