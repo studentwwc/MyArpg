@@ -2,3 +2,12 @@
 *.meta
 /Arpg/ProjectSettings
 /Arpg/Logs
+/Arpg/Temp
+/Arpg/UnityEngine.*
+/Arpg/Unity.*
+/Arpg/UnityEditor.*
+/Arpg/Packages
+/Arpg/Asset/ProjectRef
+*.sln
+*.csproj
+
