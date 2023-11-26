@@ -7,7 +7,8 @@
 /Arpg/Unity.*
 /Arpg/UnityEditor.*
 /Arpg/Packages
-/Arpg/Asset/ProjectRef
+/Arpg
+/Arpg/Assets/ProjectRef
 *.sln
 *.csproj
 
