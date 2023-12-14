@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using System;
+using UnityEngine;
 namespace Frame
 {
     public class BaseC:MonoBehaviour
@@ -7,6 +8,12 @@ namespace Frame
 
         protected GameObject Instance;
         protected BindingGroup _bindingGroup;
+        protected bool isLoad;
+        protected bool isUnLoad;
+
+        public Action LoadEvent;
+        public Action UnLoadEvent;
+        
 
         public BaseC(string assetName)
         {
@@ -22,27 +29,40 @@ namespace Frame
 
         protected void Load()
         {
+            LoadEvent?.Invoke();
         }
 
         protected void Create()
         {
-            if (Instance == null)
+            if (!isLoad)
             {
                 Load();
+                isLoad = true;
             }
+        }
+
+        protected void Visible()
+        {
+            
+        }
+
+        protected void DisVisible()
+        {
+            
         }
 
         protected void Destroy()
         {
-            if (Instance != null)
+            if (!isUnLoad)
             {
                 UnLoad();
+                isUnLoad = true;
             }
         }
 
         protected void UnLoad()
         {
-            
+            UnLoadEvent?.Invoke();
         }
         
 
