@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using Frame;
+using UnityEngine;
 
 namespace Frame
 {
@@ -17,6 +18,10 @@ namespace Frame
 
     public class MessageService:Service
     {
+        public void Init()
+        {
+           App.AppInstance.RegisterService(this);
+        }
         private Dictionary<MessageType, Action<IMessage>> _handleMessagesMap = new Dictionary<MessageType, Action<IMessage>>();
 
         public void RegisterMessages(IMessageListener messageListener)

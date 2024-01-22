@@ -6,6 +6,10 @@ namespace Frame
 {
     public class AddressableAssetService:AssetService
     {
+        public void Init()
+        {
+            Debug.Log("AddressableAssetService Init Done");
+        }
         private Dictionary<string, System.Object> assetDic = new Dictionary<string, System.Object>();
         public T GetAsset<T>(string name)
         {

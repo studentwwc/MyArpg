@@ -4,8 +4,11 @@ namespace Frame
 {
     public class BindingBase:MonoBehaviour
     {
+        
         [SerializeField]
         private string path;
+
+        [HideInInspector] public BindingGroup _BindingGroup;
 
         protected string realPath;
         public string RealPath
@@ -29,12 +32,12 @@ namespace Frame
             }
         }
 
-        protected virtual void SendMessage()
+        public void Notify()
         {
-            
+            HandleProxy();
         }
 
-        public virtual void ReceiveMessage(MessageBase messageBase)
+        public virtual void HandleProxy()
         {
             
         }

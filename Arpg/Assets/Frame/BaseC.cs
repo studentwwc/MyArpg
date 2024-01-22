@@ -1,35 +1,47 @@
 ﻿using System;
+using Unity.VisualScripting;
 using UnityEngine;
+using Util;
+
 namespace Frame
 {
-    public class BaseC:MonoBehaviour
+    public partial class BaseC
     {
         protected string AssetName;
-
+        
         protected GameObject Instance;
         protected BindingGroup _bindingGroup;
         protected bool isLoad;
         protected bool isUnLoad;
+        protected bool isInstance;
 
         public Action LoadEvent;
         public Action UnLoadEvent;
+        public Action CreateEvent;
+        public Action DestroyEvent;
         
-
-        public BaseC(string assetName)
+        public BaseC(BaseM baseM)
         {
-            AssetName = assetName;
+            baseM._binding=_bindingGroup;
+            Init();
         }
-      
+
         #region Life
         
-        protected void Init()
+        protected virtual void Init()
         {
-            
         }
 
         protected void Load()
         {
             LoadEvent?.Invoke();
+            if (Instance == null)
+            {
+                Instance = App.AppInstance.GetService<AssetService>().GetAsset<GameObject>(AssetName);
+                _bindingGroup = Instance.AutoComponent<BindingGroup>();
+                _bindingGroup.Init(this);
+                _bindingGroup.NotifyAll();
+            }
         }
 
         protected void Create()
@@ -39,16 +51,32 @@ namespace Frame
                 Load();
                 isLoad = true;
             }
+
+            if (!isInstance)
+            {
+                isInstance = true;
+                Instance = GameObject.Instantiate(Instance);
+                Instance.name = AssetName;
+            }
+            CreateEvent?.Invoke();
         }
 
-        protected void Visible()
+        public void Visible()
         {
-            
+            if (!isInstance)
+            {
+                Create();
+            }
+            Instance.GameObject().SetActive(true);
         }
 
-        protected void DisVisible()
+        public void DisVisible()
         {
-            
+            if (!isInstance)
+            {
+                Create();
+            }
+            Instance.GameObject().SetActive(false);
         }
 
         protected void Destroy()
@@ -58,22 +86,13 @@ namespace Frame
                 UnLoad();
                 isUnLoad = true;
             }
+            DestroyEvent?.Invoke();
         }
 
         protected void UnLoad()
         {
             UnLoadEvent?.Invoke();
         }
-        
-
-
         #endregion
-        
-
-        public virtual void HandleProxy(string name,MessageBase messageBase)
-        {
-            
-        }
-        
     }
 }

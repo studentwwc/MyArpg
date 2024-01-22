@@ -5,30 +5,45 @@ namespace Frame
 {
     public class BindingGroup:MonoBehaviour
     {
-        protected BaseC _baseC;
-        public Dictionary<string, BindingBase> bindingDic;
+        public BaseC _baseC;
+        private Dictionary<string, BindingBase> bindingDic;
 
-        public void Init()
+        public void Init(BaseC baseC)
         {
+            _baseC = baseC;
             bindingDic = new Dictionary<string, BindingBase>();
-            BindingBase[] bindingBases = GetComponents<BindingBase>();
+            BindingBase[] bindingBases = GetComponentsInChildren<BindingBase>();
             for (int i = 0; i < bindingBases.Length; i++)
             {
                 string key=bindingBases[i].RealPath;
                 if(!bindingDic.ContainsKey(key)&&!(bindingBases[i] is InheritBinding)){
                     bindingDic.Add(key,bindingBases[i]);
+                    bindingBases[i]._BindingGroup = this;
                 }
+            }
+            NotifyAll();
+        }
+
+        public void NotifyAll()
+        {
+            foreach (var temp in bindingDic)
+            {
+                temp.Value.Notify();
             }
         }
 
-        public void SendMessage(string name,MessageBase messageBase)
+        public void Notity(string name)
         {
-            _baseC.HandleProxy(name,messageBase);
+            if (bindingDic.ContainsKey(name))
+            {
+                bindingDic[name].Notify();
+            }
         }
 
-        public void ReceiveMessage(string name,MessageBase messageBase)
-        {
-            bindingDic[name].ReceiveMessage(messageBase);
+        public ProxyBase HandleProxy(string name,ProxyBase proxyBase=null)
+        { 
+            return _baseC.HandleProxy(name);
         }
+        
     }
 }
