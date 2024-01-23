@@ -1,5 +1,4 @@
 ﻿using System;
-using Unity.VisualScripting;
 using UnityEngine;
 using Util;
 
@@ -67,7 +66,7 @@ namespace Frame
             {
                 Create();
             }
-            Instance.GameObject().SetActive(true);
+            Instance.SetActive(true);
         }
 
         public void DisVisible()
@@ -76,7 +75,7 @@ namespace Frame
             {
                 Create();
             }
-            Instance.GameObject().SetActive(false);
+            Instance.SetActive(false);
         }
 
         protected void Destroy()

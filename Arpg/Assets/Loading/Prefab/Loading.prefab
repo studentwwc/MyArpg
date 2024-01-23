@@ -301,11 +301,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 1360510187750249326}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a229f9bf9fef457fa72d1ca099c506b8, type: 3}
+  m_Script: {fileID: 11500000, guid: e8c12c1eb44034de98d1c6335ffe8c8a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   path: Percent
   _BindingGroup: {fileID: 0}
+  test: 
 --- !u!1 &1360510188092786761
 GameObject:
   m_ObjectHideFlags: 0
@@ -470,7 +471,6 @@ GameObject:
   m_Component:
   - component: {fileID: 1360510188442572998}
   - component: {fileID: 1360510188442572999}
-  - component: {fileID: 2837083132088438109}
   m_Layer: 5
   m_Name: Loading
   m_TagString: Untagged
@@ -509,15 +509,3 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1360510188442573017}
   m_CullTransparentMesh: 1
---- !u!114 &2837083132088438109
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1360510188442573017}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1e6fb52dffea479bb03226c9427ad5b1, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 

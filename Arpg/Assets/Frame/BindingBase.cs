@@ -39,7 +39,7 @@ namespace Frame
 
         public virtual void HandleProxy()
         {
-            
+            _BindingGroup.HandleProxy(realPath);
         }
     }
 }

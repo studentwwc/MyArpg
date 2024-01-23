@@ -73,7 +73,6 @@ public class App : MonoBehaviour
 
         //Service Init
         _services = new List<Service>();
-        Canvas canvas = new Canvas();
         AssetService assetService = new AddressableAssetService();
         assetService.Init();
         RegisterService(assetService);

@@ -5,7 +5,7 @@ namespace Frame
 {
     public class BindingGroup:MonoBehaviour
     {
-        public BaseC _baseC;
+        private BaseC _baseC;
         private Dictionary<string, BindingBase> bindingDic;
 
         public void Init(BaseC baseC)
