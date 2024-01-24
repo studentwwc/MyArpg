@@ -1,6 +1,6 @@
 namespace Frame
 {
-    public class BaseM
+    public partial class BaseM
     {
         public BindingGroup _binding;
     }

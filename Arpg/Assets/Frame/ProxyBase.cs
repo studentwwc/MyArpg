@@ -1,8 +1,7 @@
 ﻿namespace Frame
 {
-    public class ProxyBase
+    public interface ProxyBase
     {
-        
     }
 
     public class FieldProxy<T>:ProxyBase

@@ -24,7 +24,7 @@ namespace Frame
                     }
                     else
                     {
-                        realPath = inheritBinding.path;
+                        realPath = inheritBinding.path+"."+transform.GetSiblingIndex()+"."+path;
                     }
                 }
 
